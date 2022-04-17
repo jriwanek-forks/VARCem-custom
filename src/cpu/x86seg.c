@@ -43,11 +43,11 @@
 #include <stdarg.h>
 #include <wchar.h>
 #define HAVE_STDARG_H
-#include "../emu.h"
-#include "../timer.h"
-#include "../mem.h"
-#include "../nvr.h"
-#include "../plat.h"
+#include <86box/86box.h>
+#include <86box/timer.h>
+#include <86box/mem.h>
+#include <86box/nvr.h>
+#include <86box/plat.h>
 #include "cpu.h"
 #include "x86.h"
 #include "386.h"

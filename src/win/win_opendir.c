@@ -55,9 +55,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <wchar.h>
-#include "../emu.h"
-#include "../plat.h"
-#include "win_opendir.h"
+#include <86box/86box.h>
+#include <86box/plat.h>
+#include <86box/win_opendir.h>
 
 
 #define SUFFIX		L"\\*"

@@ -45,14 +45,14 @@
 #ifndef INFINITY
 # define INFINITY   (__builtin_inff())
 #endif
-#include "../emu.h"
-#include "../timer.h"
-#include "../mem.h"
-#include "../devices/system/nmi.h"
-#include "../devices/system/pic.h"
-#include "../devices/system/pit.h"
-#include "../devices/floppy/fdd.h"
-#include "../devices/floppy/fdc.h"
+#include <86box/86box.h>
+#include <86box/timer.h>
+#include <86box/mem.h>
+#include <86box/nmi.h>
+#include <86box/pic.h>
+#include <86box/pit.h>
+#include <86box/fdd.h>
+#include <86box/fdc.h>
 #include "cpu.h"
 #include "x86.h"
 #include "x87.h"

@@ -39,26 +39,26 @@
 #include <string.h>
 #include <stdlib.h>
 #include <wchar.h>
-#include "../emu.h"
-#include "../config.h"
-#include "../timer.h"
-#include "../device.h"
-#include "../plat.h"
-#include "../machines/machine.h"
-#include "../devices/input/keyboard.h"
-#include "../devices/floppy/fdd.h"
-#include "../devices/disk/hdd.h"
-#include "../devices/disk/hdc.h"
-#include "../devices/scsi/scsi_device.h"
-#include "../devices/scsi/scsi_disk.h"
-#include "../devices/disk/zip.h"
-#include "../devices/disk/mo.h"
-#include "../devices/cdrom/cdrom.h"
-#include "../devices/cdrom/cdrom_image.h"
-#include "../devices/network/network.h"
-#include "../devices/sound/sound.h"
-#include "../devices/video/video.h"
-#include "ui.h"
+#include <86box/86box.h>
+#include <86box/config.h>
+#include <86box/timer.h>
+#include <86box/device.h>
+#include <86box/plat.h>
+#include <86box/machine.h>
+#include <86box/keyboard.h>
+#include <86box/fdd.h>
+#include <86box/hdd.h>
+#include <86box/hdc.h>
+#include <86box/scsi_device.h>
+#include <86box/scsi_disk.h>
+#include <86box/zip.h>
+#include <86box/mo.h>
+#include <86box/cdrom.h>
+#include <86box/cdrom_image.h>
+#include <86box/network.h>
+#include <86box/sound.h>
+#include <86box/video.h>
+#include <86box/ui.h>
 
 
 #define USE_SPACER	1			/* include a spacer field */

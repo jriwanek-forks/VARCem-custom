@@ -42,17 +42,17 @@
 #include <stdint.h>
 #include <string.h>
 #include <wchar.h>
-#include "../emu.h"
+#include <86box/86box.h>
 #include "cpu.h"
-#include "../device.h"
-#include "../io.h"
+#include <86box/device.h>
+#include <86box/io.h>
 #include "x86.h"
 #include "x86_ops.h"
-#include "../mem.h"
-#include "../devices/system/pci.h"
-#include "../plat.h"
+#include <86box/mem.h>
+#include <86box/pci.h>
+#include <86box/plat.h>
 #ifdef USE_DYNAREC
-# include "codegen.h"
+# include "../codegen/codegen.h"
 #endif
 
 uint32_t cpu_features;

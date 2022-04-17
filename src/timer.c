@@ -40,8 +40,8 @@
 #include <stdint.h>
 #include <string.h>
 #include <wchar.h>
-#include "emu.h"
-#include "timer.h"
+#include <86box/86box.h>
+#include <86box/timer.h>
 
 
 #define TIMERS_MAX 64

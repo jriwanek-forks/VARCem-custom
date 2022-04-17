@@ -52,15 +52,15 @@
 #include <wchar.h>
 #define HAVE_STDARG_H
 #define dbglog	cdrom_host_log
-#include "../emu.h"
-#include "../config.h"
-#include "../timer.h"
-#include "../ui/ui.h"
-#include "../plat.h"
-#include "../devices/cdrom/cdrom.h"
-#include "../devices/scsi/scsi_device.h"
-#include "../devices/scsi/scsi_cdrom.h"
-#include "win.h"
+#include <86box/86box.h>
+#include <86box/config.h>
+#include <86box/timer.h>
+#include <86box/ui.h>
+#include <86box/plat.h>
+#include <86box/cdrom.h>
+#include <86box/scsi_device.h>
+#include <86box/scsi_cdrom.h>
+#include <86box/win.h>
 
 
 enum {

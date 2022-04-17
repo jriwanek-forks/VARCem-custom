@@ -49,18 +49,18 @@
 #include <string.h>
 #include <stdlib.h>
 #include <wchar.h>
-#include "../emu.h"
-#include "../version.h"
-#include "../config.h"
-#include "../device.h"
-#include "../ui/ui.h"
-#include "../plat.h"
-#include "../devices/input/keyboard.h"
-#include "../devices/input/mouse.h"
-#include "../devices/video/video.h"
-#include "../devices/cdrom/cdrom.h"
-#include "win.h"
-#include "resource.h"
+#include <86box/86box.h>
+#include <86box/version.h>
+#include <86box/config.h>
+#include <86box/device.h>
+#include <86box/ui.h>
+#include <86box/plat.h>
+#include <86box/keyboard.h>
+#include <86box/mouse.h>
+#include <86box/video.h>
+#include <86box/cdrom.h>
+#include <86box/win.h>
+#include <86box/resource.h>
 
 
 #define TIMER_1SEC	1		// ID of the one-second timer

@@ -64,10 +64,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <wchar.h>
-#include "../emu.h"
-#include "../devices/input/keyboard.h"
-#include "../plat.h"
-#include "ui_vnc.h"
+#include <86box/86box.h>
+#include <86box/keyboard.h>
+#include <86box/plat.h>
+#include <86box/ui_vnc.h>
 
 
 static const int keysyms_00[] = {

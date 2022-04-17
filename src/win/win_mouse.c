@@ -42,11 +42,11 @@
 #include <windowsx.h>
 #include <stdio.h>
 #include <stdint.h>
-#include "../emu.h"
-#include "../config.h"
-#include "../plat.h"
-#include "../devices/input/mouse.h"
-#include "win.h"
+#include <86box/86box.h>
+#include <86box/config.h>
+#include <86box/plat.h>
+#include <86box/mouse.h>
+#include <86box/win.h>
 
 
 typedef struct {

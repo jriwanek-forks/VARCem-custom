@@ -53,23 +53,23 @@
 #include <stdarg.h>
 #include <string.h>
 #include <wchar.h>
-#include "../emu.h"
-#include "../config.h"
-#include "../device.h"
-#include "../plat.h"
-#include "../ui/ui.h"
+#include <86box/86box.h>
+#include <86box/config.h>
+#include <86box/device.h>
+#include <86box/plat.h>
+#include <86box/ui.h>
 #if USE_LIBPNG
-# include "../misc/png.h"
+# include <86box/png.h>
 #endif
-#include "../devices/video/video.h"
-#include "../devices/input/keyboard.h"
-#include "../devices/input/mouse.h"
+#include <86box/video.h>
+#include <86box/keyboard.h>
+#include <86box/mouse.h>
 
 
 #ifdef USE_VNC
 //#define LIBVNCSERVER_HAVE_LIBPTHREAD
 # include <rfb/rfb.h>
-# include "ui_vnc.h"
+# include <86box/ui_vnc.h>
 
 
 #define VNC_MIN_X	320

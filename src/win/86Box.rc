@@ -1,0 +1,264 @@
+/*
+ * VARCem	Virtual ARchaeological Computer EMulator.
+ *		An emulator of (mostly) x86-based PC systems and devices,
+ *		using the ISA,EISA,VLB,MCA  and PCI system buses, roughly
+ *		spanning the era between 1981 and 1995.
+ *
+ *		This file is part of the VARCem Project.
+ *
+ *		Application resource script for Windows.
+ *
+ * Version:	@(#)VARCem.rc	1.0.38	2020/12/06
+ *
+ * Author:	Fred N. van Kempen, <decwiz@yahoo.com>
+ *
+ *		Copyright 2017-2020 Fred N. van Kempen.
+ *
+ *		Redistribution and  use  in source  and binary forms, with
+ *		or  without modification, are permitted  provided that the
+ *		following conditions are met:
+ *
+ *		1. Redistributions of  source  code must retain the entire
+ *		   above notice, this list of conditions and the following
+ *		   disclaimer.
+ *
+ *		2. Redistributions in binary form must reproduce the above
+ *		   copyright  notice,  this list  of  conditions  and  the
+ *		   following disclaimer in  the documentation and/or other
+ *		   materials provided with the distribution.
+ *
+ *		3. Neither the  name of the copyright holder nor the names
+ *		   of  its  contributors may be used to endorse or promote
+ *		   products  derived from  this  software without specific
+ *		   prior written permission.
+ *
+ * THIS SOFTWARE  IS  PROVIDED BY THE  COPYRIGHT  HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND  ANY EXPRESS  OR  IMPLIED  WARRANTIES,  INCLUDING, BUT  NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+ * PARTICULAR PURPOSE  ARE  DISCLAIMED. IN  NO  EVENT  SHALL THE COPYRIGHT
+ * HOLDER OR  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL,  EXEMPLARY,  OR  CONSEQUENTIAL  DAMAGES  (INCLUDING,  BUT  NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE  GOODS OR SERVICES;  LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED  AND ON  ANY
+ * THEORY OF  LIABILITY, WHETHER IN  CONTRACT, STRICT  LIABILITY, OR  TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING  IN ANY  WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+#include <windows.h>
+#include <commctrl.h>
+#include "../include/86box/86box.h"
+#include "../include/86box/version.h"
+#include "../include/86box/ui.h"
+#include "../include/86box/resource.h"
+
+
+#define RTL	0
+
+
+#if RTL
+LANGUAGE LANG_HEBREW, 0x01
+#else
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#endif
+
+#include "../ui/lang/86Box.str"
+
+#include "86Box-common.rc"
+
+
+MainAccel ACCELERATORS
+BEGIN
+#ifdef _LOGGING
+# ifdef ENABLE_BUS_LOG
+    VK_F1,   IDM_LOG_BUS,		VIRTKEY, CONTROL
+# endif
+# ifdef ENABLE_KEYBOARD_LOG
+    VK_F2,   IDM_LOG_KEYBOARD,		VIRTKEY, CONTROL
+# endif
+# ifdef ENABLE_MOUSE_LOG
+    VK_F3,   IDM_LOG_MOUSE,		VIRTKEY, CONTROL
+# endif
+# ifdef ENABLE_GAME_LOG
+    VK_F4,   IDM_LOG_GAME,		VIRTKEY, CONTROL
+# endif
+# ifdef ENABLE_PARALLEL_LOG
+    VK_F5,   IDM_LOG_PARALLEL,		VIRTKEY, CONTROL
+# endif
+# ifdef ENABLE_SERIAL_LOG
+    VK_F6,   IDM_LOG_SERIAL,		VIRTKEY, CONTROL
+# endif
+# ifdef ENABLE_FDC_LOG
+    VK_F7,   IDM_LOG_FDC,		VIRTKEY, CONTROL
+# endif
+# ifdef ENABLE_FDD_LOG
+    VK_F8,   IDM_LOG_FDD,		VIRTKEY, CONTROL
+# endif
+# ifdef ENABLE_D86F_LOG
+    VK_F9,   IDM_LOG_D86F,		VIRTKEY, CONTROL
+# endif
+# ifdef ENABLE_HDC_LOG
+    VK_F10,  IDM_LOG_HDC,		VIRTKEY, CONTROL
+# endif
+# ifdef ENABLE_HDD_LOG
+    VK_F11,  IDM_LOG_HDD,		VIRTKEY, CONTROL
+# endif
+# ifdef ENABLE_ZIP_LOG
+    VK_F12,  IDM_LOG_ZIP,		VIRTKEY, CONTROL
+# endif
+# ifdef ENABLE_CDROM_LOG
+    VK_F1,   IDM_LOG_CDROM,		VIRTKEY, CONTROL
+# endif
+# ifdef ENABLE_CDROM_IMAGE_LOG
+    VK_F2,   IDM_LOG_CDROM_IMAGE,	VIRTKEY, CONTROL
+# endif
+# ifdef ENABLE_CDROM_HOST_LOG
+    VK_F3,   IDM_LOG_CDROM_HOST,	VIRTKEY, CONTROL
+# endif
+# ifdef ENABLE_NETWORK_LOG
+    VK_F4,   IDM_LOG_NETWORK,		VIRTKEY, CONTROL
+# endif
+# ifdef ENABLE_NETWORK_DEV_LOG
+    VK_F5,   IDM_LOG_NETWORK_DEV,	VIRTKEY, CONTROL
+# endif
+# ifdef ENABLE_SOUND_LOG
+    VK_F6,   IDM_LOG_SOUND,		VIRTKEY, CONTROL, ALT
+# endif
+# ifdef ENABLE_SOUND_DEV_LOG
+    VK_F7,   IDM_LOG_SOUND_DEV,		VIRTKEY, CONTROL, ALT
+# endif
+# ifdef ENABLE_SOUND_MIDI_LOG
+    VK_F8,   IDM_LOG_SOUND_MIDI,	VIRTKEY, CONTROL, ALT
+# endif
+# ifdef ENABLE_SCSI_LOG
+    VK_F9,   IDM_LOG_SCSI,		VIRTKEY, CONTROL, ALT
+# endif
+# ifdef ENABLE_SCSI_DEV_LOG
+    VK_F10,  IDM_LOG_SCSI_DEV,		VIRTKEY, CONTROL, ALT
+# endif
+# ifdef ENABLE_SCSI_DISK_LOG
+    VK_F11,  IDM_LOG_SCSI_DISK,		VIRTKEY, CONTROL, ALT
+# endif
+# ifdef ENABLE_VIDEO_LOG
+    VK_F12,  IDM_LOG_VIDEO,		VIRTKEY, CONTROL, ALT
+# endif
+
+# ifdef ENABLE_LOG_BREAKPOINT
+    VK_INSERT, IDM_LOG_BREAKPOINT,	VIRTKEY, CONTROL
+# endif
+#endif
+    VK_PRIOR,IDM_FULLSCREEN,		VIRTKEY, CONTROL, ALT
+    VK_HOME, IDM_SCREENSHOT,		VIRTKEY, CONTROL
+    VK_PAUSE,IDM_PAUSE,			VIRTKEY, CONTROL
+END
+
+
+ICON_MAIN		ICON		"icons/varcem.ico"
+#if 1
+ICON_DONATE		BITMAP		"icons/donate-button-blue-128x55.bmp"
+#else
+ICON_DONATE		ICON		"icons/paypal.ico"
+#endif
+
+ICON_FLOPPY_525		ICON		"icons/floppy_525.ico"
+ICON_FLOPPY_525_E	ICON		"icons/floppy_525_empty.ico"
+ICON_FLOPPY_525_A	ICON		"icons/floppy_525_active.ico"
+ICON_FLOPPY_525_I	ICON		"icons/floppy_525_empty_active.ico"
+ICON_FLOPPY_35		ICON		"icons/floppy_35.ico"
+ICON_FLOPPY_35_E	ICON		"icons/floppy_35_empty.ico"
+ICON_FLOPPY_35_A	ICON		"icons/floppy_35_active.ico"
+ICON_FLOPPY_35_I	ICON		"icons/floppy_35_empty_active.ico"
+
+ICON_CDROM		ICON		"icons/cdrom.ico"
+ICON_CDROM_E		ICON		"icons/cdrom_empty.ico"
+ICON_CDROM_A		ICON		"icons/cdrom_active.ico"
+ICON_CDROM_I		ICON		"icons/cdrom_empty_active.ico"
+
+ICON_ZIP		ICON		"icons/zip.ico"
+ICON_ZIP_E		ICON		"icons/zip_empty.ico"
+ICON_ZIP_A		ICON		"icons/zip_active.ico"
+ICON_ZIP_I		ICON		"icons/zip_empty_active.ico"
+
+ICON_MO 		ICON		"icons/mo.ico"
+ICON_MO_E		ICON		"icons/mo_empty.ico"
+ICON_MO_A		ICON		"icons/mo_active.ico"
+ICON_MO_I		ICON		"icons/mo_empty_active.ico"
+
+ICON_DISK		ICON		"icons/hard_disk.ico"
+ICON_DISK_A		ICON		"icons/hard_disk_active.ico"
+
+ICON_NETWORK		ICON		"icons/network.ico"
+ICON_NETWORK_A		ICON		"icons/network_active.ico"
+
+ICON_MACHINE		ICON		"icons/machine.ico"
+ICON_DISPLAY		ICON		"icons/display.ico"
+ICON_INPDEV		ICON		"icons/input_devices.ico"
+ICON_SOUND		ICON		"icons/sound.ico"
+ICON_PORTS		ICON		"icons/ports.ico"
+ICON_PERIPH		ICON		"icons/other_peripherals.ico"
+ICON_FLOPPY		ICON		"icons/floppy_drives.ico"
+ICON_REMOV		ICON		"icons/other_removable_devices.ico"
+
+ICON_FLOPPY_D		ICON		"icons/floppy_disabled.ico"
+ICON_CDROM_D		ICON		"icons/cdrom_disabled.ico"
+ICON_ZIP_D		ICON		"icons/zip_disabled.ico"
+ICON_MO_D		ICON		"icons/mo_disabled.ico"
+
+1			RT_MANIFEST	"86Box.manifest"
+
+
+VS_VERSION_INFO VERSIONINFO
+#ifdef EMU_VER_PATCH
+ FILEVERSION	EMU_VER_MAJOR,EMU_VER_MINOR,EMU_VER_REV,EMU_VER_PATCH
+ PRODUCTVERSION	EMU_VER_MAJOR,EMU_VER_MINOR,EMU_VER_REV,EMU_VER_PATCH
+#else
+ FILEVERSION	EMU_VER_MAJOR,EMU_VER_MINOR,EMU_VER_REV,0
+ PRODUCTVERSION	EMU_VER_MAJOR,EMU_VER_MINOR,EMU_VER_REV,0
+#endif
+ FILEFLAGSMASK	0x3fL
+#ifndef RELEASE_BUILD
+# ifdef _DEBUG
+ FILEFLAGS	VS_FF_SPECIALBUILD | VS_FF_DEBUG
+# else
+ FILEFLAGS	VS_FF_SPECIALBUILD
+# endif
+#else
+# ifdef _DEBUG
+ FILEFLAGS	VS_FF_DEBUG
+# else
+ FILEFLAGS	0x0L
+# endif
+#endif
+ FILEOS		VOS_NT_WINDOWS32
+ FILETYPE	VFT_APP
+ FILESUBTYPE	0x0L
+ BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+#if RTL
+        BLOCK "040dfde9"
+#else
+        BLOCK "0409fde9"
+#endif
+        BEGIN
+            VALUE "CompanyName", EMU_COMPANY
+            VALUE "FileDescription", EMU_TITLE
+            VALUE "FileVersion", EMU_VERSION
+            VALUE "InternalName", EMU_NAME
+            VALUE "LegalCopyright", EMU_COPYRIGHT
+            VALUE "OriginalFilename", "VARCem.exe"
+            VALUE "ProductName", EMU_PRODUCT
+            VALUE "ProductVersion", EMU_VERSION
+#ifndef RELEASE_BUILD
+            VALUE "SpecialBuild", "Development Build"
+#endif
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+#if RTL
+        VALUE "Translation", 0x040d, 65001
+#else
+        VALUE "Translation", 0x0409, 65001
+#endif
+    END
+END

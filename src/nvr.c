@@ -50,12 +50,12 @@
 #include <stdlib.h>
 #include <time.h>
 #include <wchar.h>
-#include "emu.h"
-#include "config.h"
-#include "timer.h"
-#include "machines/machine.h"
-#include "plat.h"
-#include "nvr.h"
+#include <86box/86box.h>
+#include <86box/config.h>
+#include <86box/timer.h>
+#include <86box/machine.h>
+#include <86box/plat.h>
+#include <86box/nvr.h>
 
 
 int	nvr_dosave;		/* NVR is dirty, needs saved */

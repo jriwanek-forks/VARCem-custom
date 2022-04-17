@@ -42,17 +42,17 @@
 #ifndef INFINITY
 # define INFINITY   (__builtin_inff())
 #endif
-#include "../emu.h"
-#include "../io.h"
-#include "../mem.h"
-#include "../devices/system/nmi.h"
-#include "../devices/system/pic.h"
+#include <86box/86box.h>
+#include <86box/io.h>
+#include <86box/mem.h>
+#include <86box/nmi.h>
+#include <86box/pic.h>
 #include "cpu.h"
 #include "x86.h"
 #include "x86_ops.h"
 #include "x87.h"
 #include "x86_flags.h"
-#include "codegen.h"
+#include "../codegen/codegen.h"
 
 #define CPU_BLOCK_END() cpu_block_end = 1
 

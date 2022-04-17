@@ -47,41 +47,41 @@
 #ifdef USE_MINIVHD
 # include <minivhd.h>
 #endif
-#include "../emu.h"
-#include "../config.h"
-#include "../timer.h"
+#include <86box/86box.h>
+#include <86box/config.h>
+#include <86box/timer.h>
 #include "../cpu/cpu.h"
-#include "../mem.h"
-#include "../rom.h"
-#include "../device.h"
-#include "../machines/machine.h"
-#include "../nvr.h"
-#include "../ui/ui.h"
-#include "../plat.h"
-#include "../devices/ports/game_dev.h"
-#include "../devices/ports/parallel.h"
-#include "../devices/ports/parallel_dev.h"
-#include "../devices/ports/serial.h"
-#include "../devices/misc/isamem.h"
-#include "../devices/misc/isartc.h"
-#include "../devices/input/mouse.h"
-#include "../devices/input/game/joystick.h"
-#include "../devices/floppy/fdd.h"
-#include "../devices/disk/hdd.h"
-#include "../devices/disk/hdc.h"
-#include "../devices/disk/hdc_ide.h"
-#include "../devices/scsi/scsi.h"
-#include "../devices/scsi/scsi_device.h"
-#include "../devices/cdrom/cdrom.h"
-#include "../devices/disk/zip.h"
-#include "../devices/disk/mo.h"
-#include "../devices/network/network.h"
-#include "../devices/sound/sound.h"
-#include "../devices/sound/midi.h"
-#include "../devices/sound/snd_mpu401.h"
-#include "../devices/video/video.h"
-#include "win.h"
-#include "resource.h"
+#include <86box/mem.h>
+#include <86box/rom.h>
+#include <86box/device.h>
+#include <86box/machine.h>
+#include <86box/nvr.h>
+#include <86box/ui.h>
+#include <86box/plat.h>
+#include <86box/game_dev.h>
+#include <86box/parallel.h>
+#include <86box/parallel_dev.h>
+#include <86box/serial.h>
+#include <86box/isamem.h>
+#include <86box/isartc.h>
+#include <86box/mouse.h>
+#include <86box/joystick.h>
+#include <86box/fdd.h>
+#include <86box/hdd.h>
+#include <86box/hdc.h>
+#include <86box/hdc_ide.h>
+#include <86box/scsi.h>
+#include <86box/scsi_device.h>
+#include <86box/cdrom.h>
+#include <86box/zip.h>
+#include <86box/mo.h>
+#include <86box/network.h>
+#include <86box/sound.h>
+#include <86box/midi.h>
+#include <86box/snd_mpu401.h>
+#include <86box/video.h>
+#include <86box/win.h>
+#include <86box/resource.h>
 
 
 /* Floppy drives category. */
@@ -122,19 +122,19 @@ settings_msgbox(int type, void *arg)
 
 
 /* Load the per-page dialogs. */
-#include "win_settings_machine.h"		// Machine dialog
-#include "win_settings_video.h"			// Video dialog
-#include "win_settings_input.h"			// Input dialog
-#include "win_settings_sound.h"			// Sound dialog
-#include "win_settings_ports.h"			// Ports dialog
-#include "win_settings_periph.h"		// Other Peripherals dialog
-#include "win_settings_network.h"		// Network dialog
-#include "win_settings_floppy.h"		// Floppy dialog
-#include "win_settings_disk.h"			// (Hard) Disk dialog
-#include "win_settings_remov.h"			// Removable Devices dialog
-#include "win_settings_mmc.h"			// CD/DVD Devices dialog */
-#include "win_settings_iomega.h"		// IOMEGA Devices dialog */
-#include "win_settings_mo.h"			// MO Devices dialog */
+#include <86box/win_settings_machine.h>		// Machine dialog
+#include <86box/win_settings_video.h>			// Video dialog
+#include <86box/win_settings_input.h>			// Input dialog
+#include <86box/win_settings_sound.h>			// Sound dialog
+#include <86box/win_settings_ports.h>			// Ports dialog
+#include <86box/win_settings_periph.h>		// Other Peripherals dialog
+#include <86box/win_settings_network.h>		// Network dialog
+#include <86box/win_settings_floppy.h>		// Floppy dialog
+#include <86box/win_settings_disk.h>			// (Hard) Disk dialog
+#include <86box/win_settings_remov.h>			// Removable Devices dialog
+#include <86box/win_settings_mmc.h>			// CD/DVD Devices dialog */
+#include <86box/win_settings_iomega.h>		// IOMEGA Devices dialog */
+#include <86box/win_settings_mo.h>			// MO Devices dialog */
 
 
 /* This does the initial read of global variables into the temporary ones. */

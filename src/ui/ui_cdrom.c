@@ -49,18 +49,18 @@
 #include <string.h>
 #include <stdlib.h>
 #include <wchar.h>
-#include "../emu.h"
-#include "../timer.h"
-#include "../config.h"
-#include "../plat.h"
-#include "../devices/floppy/fdd.h"
-#include "../devices/disk/hdd.h"
-#include "../devices/scsi/scsi_device.h"
-#include "../devices/scsi/scsi_disk.h"
-#include "../devices/disk/zip.h"
-#include "../devices/disk/mo.h"
-#include "../devices/cdrom/cdrom.h"
-#include "ui.h"
+#include <86box/86box.h>
+#include <86box/timer.h>
+#include <86box/config.h>
+#include <86box/plat.h>
+#include <86box/fdd.h>
+#include <86box/hdd.h>
+#include <86box/scsi_device.h>
+#include <86box/scsi_disk.h>
+#include <86box/zip.h>
+#include <86box/mo.h>
+#include <86box/cdrom.h>
+#include <86box/ui.h>
 
 
 void

@@ -39,10 +39,10 @@
 #include <string.h>
 #include <wchar.h>
 #include <math.h>
-#include "../emu.h"
+#include <86box/86box.h>
 #include "cpu.h"
-#include "../mem.h"
-#include "../devices/system/pic.h"
+#include <86box/mem.h>
+#include <86box/pic.h>
 #include "x86.h"
 #include "x86_flags.h"
 #include "x86_ops.h"

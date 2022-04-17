@@ -44,14 +44,14 @@
 #include <stdlib.h>
 #include <wchar.h>
 
-#include "../emu.h"
-#include "../timer.h"
-#include "../plat.h"
-#include "../ui/ui.h"
-#include "../misc/random.h"
-#include "../devices/scsi/scsi_device.h"
-#include "../devices/disk/zip.h"
-#include "../devices/disk/mo.h"
+#include <86box/86box.h>
+#include <86box/timer.h>
+#include <86box/plat.h>
+#include <86box/ui.h>
+#include <86box/random.h>
+#include <86box/scsi_device.h>
+#include <86box/zip.h>
+#include <86box/mo.h>
 
 
 typedef struct {

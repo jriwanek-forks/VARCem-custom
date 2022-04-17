@@ -42,12 +42,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "../emu.h"
-#include "../config.h"
-#include "../device.h"
-#include "../plat.h"
-#include "../devices/input/keyboard.h"
-#include "win.h"
+#include <86box/86box.h>
+#include <86box/config.h>
+#include <86box/device.h>
+#include <86box/plat.h>
+#include <86box/keyboard.h>
+#include <86box/win.h>
 
 
 static uint16_t	scancode_map[768];

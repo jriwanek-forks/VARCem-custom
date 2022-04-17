@@ -49,10 +49,10 @@
 #include <string.h>
 #include <stdlib.h>
 #include <wchar.h>
-#include "../emu.h"
+#include <86box/86box.h>
 #undef malloc
-#include "../plat.h"
-#include "../ui/ui.h"
+#include <86box/plat.h>
+#include <86box/ui.h>
 
 
 /* Grab the value from a string. */

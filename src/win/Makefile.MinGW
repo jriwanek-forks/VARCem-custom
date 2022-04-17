@@ -120,15 +120,15 @@ endif
 #########################################################################
 #		Nothing should need changing from here on..		#
 #########################################################################
-VPATH		:= $(EXPATH) . cpu \
-		   devices \
-		    devices/chipsets devices/system devices/sio \
-		    devices/input devices/input/game devices/ports \
-		    devices/network devices/printer devices/misc \
-		    devices/floppy devices/floppy/lzf \
-		    devices/disk devices/cdrom devices/scsi \
-		    devices/sound devices/video \
-		   machines misc ui win
+VPATH		:= $(EXPATH) . cpu codegen \
+		   device \
+		    chipset device/system sio \
+		    device/input game device/ports \
+		    network printer misc \
+		    floppy floppy/lzf \
+		    disk cdrom scsi \
+		    sound video \
+		   machine mem misc ui win
 
 #
 # Name of the executable.
@@ -224,7 +224,8 @@ DEPFILE		:= win/.depends-mingw
 # Set up the correct toolchain flags.
 OPTS		:= $(EXTRAS) $(STUFF) \
 		   -D_CRT_NON_CONFORMING_SWPRINTFS \
-		   -D__USE_MINGW_ANSI_STDIO_X
+		   -D__USE_MINGW_ANSI_STDIO_X \
+		   -Iinclude -Iinclude_make
 RFLAGS		:= --input-format=rc -O coff
 LFLAGS		:=
 O		:= .o
@@ -306,7 +307,7 @@ ifeq ($(RELEASE), y)
  RFLAGS		+= -DRELEASE_BUILD
 endif
 ifeq ($(X64), y)
- PLATCG		:= codegen_x86-64.o codegen_accumulate_x64.o
+ PLATCG		:= codegen_x86-64.o codegen_accumulate_x86-64.o
  CGOPS		:= codegen_ops_x86-64.h
  VCG		:= vid_voodoo_codegen_x86-64.h
 else
@@ -713,7 +714,7 @@ ifeq ($(DEV_BRANCH), y)
 
  ifeq ($(COMPAQ), y)
   OPTS		+= -DUSE_COMPAQ
-  DEVBROBJ	+= m_compaq.o m_compaq_vid.o vid_cga_compaq.o
+  DEVBROBJ	+= m_compaq.o m_compaq_vid.o vid_compaq_cga.o
  endif
 
  ifeq ($(SANYO), y)
@@ -817,10 +818,12 @@ CXXFLAGS	:= $(WX_FLAGS) $(OPTS) $(DFLAGS) $(COPTIM) $(AOPTIM) \
 #		Create the (final) list of objects to build.		#
 #########################################################################
 
-RESDLL		:= VARCem-$(LANG)
+RESDLL		:= 86Box-$(LANG)
 
-MAINOBJ		:= pc.o config.o timer.o io.o mem.o rom.o rom_load.o \
+MAINOBJ		:= 86box.o config.o timer.o io.o rom_load.o \
 		   device.o nvr.o misc.o random.o
+
+MEMOBJ		:= mem.o rom.o
 
 UIOBJ		+= ui_main.o ui_lang.o ui_stbar.o ui_vidapi.o \
 		   ui_cdrom.o ui_new_image.o ui_misc.o
@@ -830,18 +833,18 @@ CPUOBJ		:= cpu.o cpu_table.o \
 		   386_dynarec.o $(DYNARECOBJ)
 
 SYSOBJ		:= apm.o clk.o dma.o nmi.o pic.o pit.o ppi.o pci.o \
-		   mca.o mcr.o memregs.o nvr_at.o nvr_ps2.o port92.o
+		   mca.o mcr.o memregs.o nvr_at.o nvr_ps2.o port_92.o
 
 CHIPOBJ		:= neat.o scat.o scamp.o \
 		   headland.o \
 		   acc2036.o acc2168.o \
-		   cs82c100.o \
+		   82c100.o \
 		   sl82c460.o vl82c480.o \
 		   ali1429.o \
 		   opti495.o opti895.o \
-		   sis471.o sis496.o \
+		   sis_85c4xx.o sis_85c496.o \
 		   wd76c10.o \
-		   intel4x0.o
+		   intel_4x0.o
 
 MCHOBJ		:= machine.o machine_table.o \
 		    m_xt.o \
@@ -872,7 +875,7 @@ DEVOBJ		:= bugger.o \
 		    prt_text.o prt_cpmap.o prt_escp.o \
 		   serial.o \
 		   i2c.o i2c_eeprom.o i2c_gpio.o \
-		   sio_acc3221.o sio_f82c710.o sio_fdc37c66x.o \
+		   sio_acc3221.o sio_f82c710.o sio_fdc37c6xx.o \
 		   sio_fdc37c669.o sio_fdc37c93x.o \
 		   sio_pc87306.o sio_pc87332.o \
 		   sio_w83877f.o sio_w83787f.o \
@@ -898,7 +901,7 @@ HDDOBJ		:= hdd.o \
 		   hdc.o \
 		    hdc_st506_xt.o hdc_st506_at.o \
 		    hdc_esdi_at.o hdc_esdi_mca.o \
-		    hdc_ide_ata.o hdc_ide_xta.o hdc_xtide.o
+		    hdc_ide.o hdc_xta.o hdc_xtide.o
 
 CDROMOBJ	:= cdrom.o \
 		   cdrom_speed.o \
@@ -915,12 +918,12 @@ endif
 SCSIOBJ		:= scsi.o \
 		   scsi_device.o scsi_disk.o scsi_cdrom.o \
 		    scsi_x54x.o scsi_aha154x.o scsi_buslogic.o \
-		    scsi_ncr5380.o scsi_ncr53c810.o
+		    scsi_ncr5380.o scsi_ncr53c8xx.o
 
 NETOBJ		:= network.o \
 		   network_dev.o \
 		    net_dp8390.o \
-		    net_ne2000.o net_wd80x3.o net_3c503.o
+		    net_ne2000.o net_wd8003.o net_3c503.o
 
 SNDOBJ		:= sound.o \
 		    openal.o \
@@ -943,7 +946,7 @@ SNDOBJ		:= sound.o \
 		    snd_ym7128.o
 
 VIDOBJ		:= video.o \
-		   video_dev.o \
+		   vid_table.o \
 		    vid_cga.o vid_cga_comp.o \
 		    vid_mda.o \
 		    vid_hercules.o vid_herculesplus.o vid_incolor.o \
@@ -985,7 +988,7 @@ PLATOBJ		:= win.o \
 
 
 OBJ		:= $(MAINOBJ) $(CPUOBJ) $(MCHOBJ) $(SYSOBJ) $(CHIPOBJ) \
-		   $(DEVOBJ) $(FDDOBJ) $(CDROMOBJ) $(ZIPOBJ) $(MOOBJ) \
+		   $(DEVOBJ) $(MEMOBJ) $(FDDOBJ) $(CDROMOBJ) $(ZIPOBJ) $(MOOBJ) \
 		   $(HDDOBJ) $(USBOBJ) $(NETOBJ) $(SCSIOBJ) $(SNDOBJ) \
 		   $(VIDOBJ) $(UIOBJ) $(PLATOBJ) $(MISCOBJ) $(DEVBROBJ)
 ifdef EXOBJ
@@ -1033,7 +1036,7 @@ win/Mklang.cmd:	win/Makefile.MinGW
 		@echo @SET PATH=$(PATH) >win\Mklang.cmd
 		@echo @SETLOCAL >>win\Mklang.cmd
 		@echo @SET WANT=none >>win\Mklang.cmd
-		@echo @FOR /F "eol=# tokens=1,2,3,4,5* delims=, " %%%%i in (ui\lang\VARCem.lang) do @if "%%1"=="%%%%i" set WANT=LANG=%%%%i LANGID=%%%%j PRILANG=%%%%k SUBLANG=%%%%l >>win\Mklang.cmd
+		@echo @FOR /F "eol=# tokens=1,2,3,4,5* delims=, " %%%%i in (ui\lang\86Box.lang) do @if "%%1"=="%%%%i" set WANT=LANG=%%%%i LANGID=%%%%j PRILANG=%%%%k SUBLANG=%%%%l >>win\Mklang.cmd
 		@echo @IF NOT "%%WANT%%"=="none" @$(MAKE) -fwin/Makefile.MinGW "RFLAGS=$(RFLAGS)" %%WANT%% VARCem-%%1.dll >>win\Mklang.cmd
 
 langs:		win/Mklang.cmd
@@ -1042,15 +1045,15 @@ ifdef LANG
 		@win\Mklang $(LANG)
 else
 		@echo Generating localizations..
-		@FOR /F "eol=# tokens=1 delims=, " %%i in (ui\lang\VARCem.lang) do @win\Mklang %%i
+		@FOR /F "eol=# tokens=1 delims=, " %%i in (ui\lang\86Box.lang) do @win\Mklang %%i
 endif
 		@-rm win\Mklang.cmd
 
-$(RESDLL).rc:	VARCem.rpp
+$(RESDLL).rc:	86Box.rpp
 		@echo Generating $< ..
 		@win\preproc.cmd $< $@ $(PREPROC) "-DPREAMBLE=" "-DLANG=$(LANG)" "-DLANGID=$(LANGID)" "-DPRILANG=$(PRILANG)" "-DSUBLANG=$(SUBLANG)"
 
-$(RESDLL).res:	$(RESDLL).rc VARCem-common.rc
+$(RESDLL).res:	$(RESDLL).rc 86Box-common.rc
 		@echo Processing $< ..
 		@$(WINDRES) $(RFLAGS) -i $< -o $@
 
@@ -1060,13 +1063,13 @@ $(RESDLL).dll:	$(RESDLL).res
 		@strip --strip-unneeded $@
 		@-rm $(RESDLL).rc
 
-VARCem.res:	VARCem.rc VARCem.mpp
+86Box.res:	86Box.rc 86Box.mpp
 		@echo Generating Manifest file..
-		@$(PREPROC) win/VARCem.mpp >VARCem.manifest
+		@$(PREPROC) win/86Box.mpp >86Box.manifest
 		@echo Processing $<
-		@$(WINDRES) $(RFLAGS) -i $< -o VARCem.res
+		@$(WINDRES) $(RFLAGS) -i $< -o 86Box.res
 
-$(PROG).exe:	VARCem.res $(OBJ)
+$(PROG).exe:	86Box.res $(OBJ)
 		@echo Linking $@ ..
 		@$(CC) $(LFLAGS) -o $@ $(OBJ) $< $(LIBS)
 ifneq ($(DEBUG), y)

@@ -45,12 +45,12 @@
 #include <stdint.h>
 #include <string.h>
 #include <wchar.h>
-#include "../emu.h"
-#include "../version.h"
-#include "../device.h"
-#include "../ui/ui.h"
-#include "../plat.h"
-#include "win.h"
+#include <86box/86box.h>
+#include <86box/version.h>
+#include <86box/device.h>
+#include <86box/ui.h>
+#include <86box/plat.h>
+#include <86box/win.h>
 
 
 DWORD	filterindex = 0;

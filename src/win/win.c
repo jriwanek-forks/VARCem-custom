@@ -49,28 +49,28 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <wchar.h>
-#include "../emu.h"
-#include "../version.h"
-#include "../config.h"
-#include "../device.h"
-#include "../ui/ui.h"
-#include "../plat.h"
+#include <86box/86box.h>
+#include <86box/version.h>
+#include <86box/config.h>
+#include <86box/device.h>
+#include <86box/ui.h>
+#include <86box/plat.h>
 #ifdef USE_SDL
-# include "win_sdl.h"
+# include <86box/win_sdl.h>
 #endif
 #ifdef USE_VNC
-# include "../ui/ui_vnc.h"
+# include <86box/ui_vnc.h>
 #endif
 #ifdef USE_RDP
 # include <rdp.h>
 #endif
-#include "../devices/cdrom/cdrom.h"
-#include "../devices/input/mouse.h"
-#include "../devices/video/video.h"
+#include <86box/cdrom.h>
+#include <86box/mouse.h>
+#include <86box/video.h>
 #ifdef USE_WX
 # include "../wx/wx_ui.h"
 #endif
-#include "win.h"
+#include <86box/win.h>
 
 
 /* Platform Public data, specific. */

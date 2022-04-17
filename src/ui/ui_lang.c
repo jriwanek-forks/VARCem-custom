@@ -49,9 +49,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <wchar.h>
-#include "../emu.h"
-#include "ui.h"
-#include "../plat.h"
+#include <86box/86box.h>
+#include <86box/ui.h>
+#include <86box/plat.h>
 
 
 /* Local data. */

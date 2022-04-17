@@ -51,15 +51,15 @@
 #include <string.h>
 #include <math.h>
 #include <wchar.h>
-#include "../emu.h"
-#include "../config.h"
-#include "../device.h"
-#include "../plat.h"
-#include "../ui/ui.h"
-#include "../devices/ports/game_dev.h"
-#include "../devices/input/game/joystick.h"
-#include "win.h"
-#include "resource.h"
+#include <86box/86box.h>
+#include <86box/config.h>
+#include <86box/device.h>
+#include <86box/plat.h>
+#include <86box/ui.h>
+#include <86box/game_dev.h>
+#include <86box/joystick.h>
+#include <86box/win.h>
+#include <86box/resource.h>
 
 
 #define MAX_PLAT_JOYSTICKS	8

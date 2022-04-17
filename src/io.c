@@ -41,8 +41,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <wchar.h>
-#include "emu.h"
-#include "io.h"
+#include <86box/86box.h>
+#include <86box/io.h>
 #include "cpu/cpu.h"
 
 

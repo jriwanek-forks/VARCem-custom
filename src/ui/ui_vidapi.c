@@ -50,12 +50,12 @@
 #include <stdlib.h>
 #include <wchar.h>
 #include <time.h>
-#include "../emu.h"
-#include "../config.h"
-#include "../device.h"
-#include "../plat.h"
-#include "../devices/video/video.h"
-#include "ui.h"
+#include <86box/86box.h>
+#include <86box/config.h>
+#include <86box/device.h>
+#include <86box/plat.h>
+#include <86box/video.h>
+#include <86box/ui.h>
 
 
 /* Get availability of a VidApi entry. */

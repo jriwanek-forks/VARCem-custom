@@ -49,13 +49,13 @@
 #include <stdint.h>
 #include <string.h>
 #include <wchar.h>
-#include "../emu.h"
-#include "../mem.h"
+#include <86box/86box.h>
+#include <86box/mem.h>
 #include "cpu.h"
 #include "x86.h"
 #include "x86_ops.h"
 #include "x87.h"
-#include "codegen.h"
+#include "../codegen/codegen.h"
 #include "codegen_timing_common.h"
 
 /*Instruction has different execution time for 16 and 32 bit data. Does not pair */

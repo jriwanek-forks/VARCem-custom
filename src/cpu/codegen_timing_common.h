@@ -34,7 +34,7 @@
  *   Boston, MA 02111-1307
  *   USA.
  */
-#include "codegen_ops.h"
+#include "../codegen/codegen_ops.h"
 
 /*Instruction has input dependency on register in REG field*/
 #define SRCDEP_REG (1ull << 0)

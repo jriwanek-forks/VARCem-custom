@@ -48,13 +48,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <wchar.h>
-#include "../emu.h"
-#include "../config.h"
-#include "../device.h"
-#include "../ui/ui.h"
-#include "../plat.h"
-#include "win.h"
-#include "resource.h"
+#include <86box/86box.h>
+#include <86box/config.h>
+#include <86box/device.h>
+#include <86box/ui.h>
+#include <86box/plat.h>
+#include <86box/win.h>
+#include <86box/resource.h>
 
 
 #define STR_FONTNAME	"Segoe UI"

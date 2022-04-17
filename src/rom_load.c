@@ -59,12 +59,12 @@
 #include <stdlib.h>
 #include <wchar.h>
 #include <ctype.h>
-#include "emu.h"
-#include "machines/machine.h"
-#include "mem.h"
-#include "rom.h"
-#include "device.h"
-#include "plat.h"
+#include <86box/86box.h>
+#include <86box/machine.h>
+#include <86box/mem.h>
+#include <86box/rom.h>
+#include <86box/device.h>
+#include <86box/plat.h>
 
 
 #define MAX_ARGS	16		/* max number of arguments */

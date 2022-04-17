@@ -43,15 +43,15 @@
 #include <string.h>
 #include <stdlib.h>
 #include <wchar.h>
-#include "../emu.h"
-#include "../timer.h"
-#include "../ui/ui.h"
-#include "../plat.h"
-#include "../devices/scsi/scsi_device.h"
-#include "../devices/disk/zip.h"
-#include "../devices/disk/mo.h"
-#include "win.h"
-#include "resource.h"
+#include <86box/86box.h>
+#include <86box/timer.h>
+#include <86box/ui.h>
+#include <86box/plat.h>
+#include <86box/scsi_device.h>
+#include <86box/zip.h>
+#include <86box/mo.h>
+#include <86box/win.h>
+#include <86box/resource.h>
 
 
 static wchar_t	fd_file_name[512];

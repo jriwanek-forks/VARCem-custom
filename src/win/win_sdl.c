@@ -60,18 +60,18 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
-#include "../emu.h"
-#include "../config.h"
-#include "../version.h"
-#include "../device.h"
-#include "../ui/ui.h"
-#include "../plat.h"
+#include <86box/86box.h>
+#include <86box/config.h>
+#include <86box/version.h>
+#include <86box/device.h>
+#include <86box/ui.h>
+#include <86box/plat.h>
 #if USE_LIBPNG
-# include "../misc/png.h"
+# include <86box/png.h>
 #endif
-#include "../devices/video/video.h"
-#include "win.h"
-#include "win_sdl.h"
+#include <86box/video.h>
+#include <86box/win.h>
+#include <86box/win_sdl.h>
 
 
 #if USE_SDL != 1

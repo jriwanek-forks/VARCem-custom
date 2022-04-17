@@ -42,17 +42,17 @@
 #include <string.h>
 #include <math.h>
 #include <wchar.h>
-#include "../emu.h"
+#include <86box/86box.h>
 #include "cpu.h"
 #include "x86.h"
-#include "../io.h"
-#include "../devices/system/clk.h"
-#include "../devices/system/nmi.h"
-#include "../devices/system/pic.h"
-#include "../mem.h"
-#include "../rom.h"
-#include "../timer.h"
-#include "../plat.h"
+#include <86box/io.h>
+#include <86box/clk.h>
+#include <86box/nmi.h>
+#include <86box/pic.h>
+#include <86box/mem.h>
+#include <86box/rom.h>
+#include <86box/timer.h>
+#include <86box/plat.h>
 
 
 /* Misc */

@@ -44,16 +44,16 @@
 #include <string.h>
 #include <stdlib.h>
 #include <wchar.h>
-#include "emu.h"
-#include "config.h"
-#include "mem.h"
-#include "rom.h"
-#include "device.h"
-#include "machines/machine.h"
-#include "devices/sound/sound.h"
-#include "devices/video/video.h"
-#include "ui/ui.h"
-#include "plat.h"
+#include <86box/86box.h>
+#include <86box/config.h>
+#include <86box/mem.h>
+#include <86box/rom.h>
+#include <86box/device.h>
+#include <86box/machine.h>
+#include <86box/sound.h>
+#include <86box/video.h>
+#include <86box/ui.h>
+#include <86box/plat.h>
 
 
 #define DEVICE_MAX	256			// max # of devices

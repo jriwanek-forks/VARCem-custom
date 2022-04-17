@@ -48,12 +48,12 @@
 #include <string.h>
 #include <stdlib.h>
 #include <wchar.h>
-#include "../emu.h"
-#include "../version.h"
-#include "../ui/ui.h"
-#include "../plat.h"
-#include "win.h"
-#include "resource.h"
+#include <86box/86box.h>
+#include <86box/version.h>
+#include <86box/ui.h>
+#include <86box/plat.h>
+#include <86box/win.h>
+#include <86box/resource.h>
 
 
 static void

@@ -53,9 +53,9 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "../emu.h"
-#include "../plat.h"
-#include "../devices/ports/serial.h"
+#include <86box/86box.h>
+#include <86box/plat.h>
+#include <86box/serial.h>
 
 
 typedef struct {

@@ -49,9 +49,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <wchar.h>
-#include "../emu.h"
-#include "../plat.h"
-#include "ui.h"
+#include <86box/86box.h>
+#include <86box/plat.h>
+#include <86box/ui.h>
 
 
 /* Update the UI and/or host for the active keyboard state. */

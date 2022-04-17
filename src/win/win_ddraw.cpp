@@ -41,19 +41,19 @@
 #include <ddraw.h>
 #include <stdio.h>
 #include <stdint.h>
-#include "../emu.h"
-#include "../config.h"
-#include "../device.h"
-#include "../ui/ui.h"
-#include "../plat.h"
+#include <86box/86box.h>
+#include <86box/config.h>
+#include <86box/device.h>
+#include <86box/ui.h>
+#include <86box/plat.h>
 #ifdef USE_LIBPNG
-# include "../misc/png.h"
+# include <86box/png.h>
 #endif
 #ifdef _MSC_VER
 # pragma warning(disable: 4200)
 #endif
-#include "../devices/video/video.h"
-#include "win.h"
+#include <86box/video.h>
+#include <86box/win.h>
 
 
 static LPDIRECTDRAW4		lpdd4 = NULL;
