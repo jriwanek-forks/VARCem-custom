@@ -41,7 +41,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <wchar.h>
-#include <c_interface.h>
+//#include <c_interface.h>
 #define dbglog sound_card_log
 #include <86box/86box.h>
 #include <86box/io.h>

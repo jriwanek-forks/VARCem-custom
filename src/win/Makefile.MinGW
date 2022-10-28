@@ -143,7 +143,7 @@ ifndef PROG
 endif
 ifeq ($(DEBUG), y)
  PROG		:= $(PROG)-d
- NETIF		:= $(NETIF)-d
+# NETIF		:= $(NETIF)-d
  override LOGGING := y
 else
  ifeq ($(LOGGING), y)
@@ -373,7 +373,7 @@ endif
 
 # (Win)Pcap: N=no, Y=yes,linked, D=yes,dynamic, S=yes,static (always dynamic)
 ifndef PCAP
- PCAP		:= d
+ PCAP		:= n
 endif
 ifneq ($(PCAP), n)
  ifeq ($(PCAP_PATH), )
@@ -447,7 +447,7 @@ endif
 
 # FreeType (always dynamic)
 ifndef FREETYPE
- FREETYPE	:= d
+ FREETYPE	:= n
 endif
 ifneq ($(FREETYPE), n)
  ifeq ($(FREETYPE_PATH), )
@@ -460,7 +460,7 @@ endif
 
 # OpenAL (always dynamic)
 ifndef OPENAL
- OPENAL		:= d
+ OPENAL		:= n
 endif
 ifneq ($(OPENAL), n)
  ifeq ($(OPENAL_PATH), )
@@ -473,7 +473,7 @@ endif
 
 # FluidSynth (always dynamic)
 ifndef FLUIDSYNTH
- FLUIDSYNTH	:= d
+ FLUIDSYNTH	:= n
 endif
 ifneq ($(FLUIDSYNTH), n)
  ifeq ($(FLUIDSYNTH_PATH), )
@@ -486,7 +486,7 @@ endif
 
 # MunT: N=no, Y=yes,linked, D=yes,dynamic, S=yes,static
 ifndef MUNT
- MUNT		:= d
+ MUNT		:= n
 endif
 ifneq ($(MUNT), n)
  ifeq ($(MUNT_PATH), )
@@ -629,7 +629,7 @@ endif
 
 # MiniVHD: N=no, Y=yes,linked, D=yes,dynamic, S=yes,static
 ifndef MINIVHD
- MINIVHD	:= y
+ MINIVHD	:= n
 endif
 ifneq ($(MINIVHD), n)
  ifeq ($(MINIVHD_PATH), )
@@ -867,12 +867,13 @@ MCHOBJ		:= machine.o machine_table.o \
 		    m_sl82c460.o \
 		    m_misc.o
 
+# prt_escp.o \
 DEVOBJ		:= bugger.o \
 		   isamem.o isartc.o \
 		   amidisk.o \
 		   game.o game_dev.o \
 		   parallel.o parallel_dev.o \
-		    prt_text.o prt_cpmap.o prt_escp.o \
+		    prt_text.o prt_cpmap.o \
 		   serial.o \
 		   i2c.o i2c_eeprom.o i2c_gpio.o \
 		   sio_acc3221.o sio_f82c710.o sio_fdc37c6xx.o \
@@ -1024,7 +1025,7 @@ else
 endif
 
 
-all:		$(PREBUILD) $(PROG).exe $(NETIF).exe $(POSTBUILD)
+all:		$(PREBUILD) $(PROG).exe $(POSTBUILD)
 
 
 # Create a script (command file) that figures out which
