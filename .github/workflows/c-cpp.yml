@@ -25,7 +25,7 @@ jobs:
         shell: msys2 {0}
 
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         dev-build: ['y', 'n']
         new-dynarec: ['y', 'n']
